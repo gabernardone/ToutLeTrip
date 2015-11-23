@@ -1,0 +1,41 @@
+.nav-text {
+    vertical-align:middle;
+}
+
+
+.icon{
+    font-size:30px; 
+    vertical-align: middle;
+}
+
+.modal-footer {   border-top: 0px; }
+
+.pad-top {
+    padding-top:10px;
+}
+
+
+body{
+
+    background: url('/img/map.png') no-repeat center center fixed;
+    background-size: 100% auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.btnNav{
+
+margin-bottom:0px;
+
+
+}
+
+.panel-default{
+
+    width:480px;
+
+}
+

@@ -1,0 +1,179 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="toutLeTrip01.MasterPage" %>
+
+<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Tout Le Trip</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="Content/bootstrap.min.css" type="text/css" />
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="Content/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="Content/animate.min.css" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Content/creative.css" type="text/css" />
+    <link rel="stylesheet" href="Content/droplogin.css" type="text/css" />
+    <link rel="stylesheet" href="Content/icons.css" type="text/css" />
+
+    <!-- MetisMenu CSS -->
+    <link rel="stylesheet" href="Content/bower_components/metisMenu/dist/metisMenu.min.css" type="text/css" />
+
+    <!-- Social Buttons CSS -->
+    <link rel="stylesheet" href="Content/bower_components/bootstrap-social/bootstrap-social.css" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body id="page-top">
+
+    <asp:ContentPlaceHolder ID="conteudo" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <!-- INICIO DO MENU-->
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand page-scroll" href="#page-top">Tout Le Trip</a> -->
+                    <img src="img/logo2.png" alt="Logotipo" class="ca" />
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#about">Sobre</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#services">Serviços</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#portfolio">Aplicativo</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Contato</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                            <ul id="login-dp" class="dropdown-menu">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <%--<asp:TextBox ID="txtUser" CssClass="form-control" placeholder="Nome de Usuário" runat="server" />--%>
+                                                <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" placeholder="Nome de Usuário" />
+                                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                                                    CssClass="text-danger" ErrorMessage="The email field is required." />
+                                            </div>
+                                            <div class="form-group">
+                                                <%--<asp:TextBox ID="txtSenha" TextMode="Password" CssClass="form-control" placeholder="Senha" runat="server" />--%>
+                                                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" placeholder="Senha" />
+                                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
+
+                                                <div class="help-block text-right" id="recoverSenha" data-toggle="modal" data-target="#modalRecover"><a href="#">Esqueceu a senha?</a></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <!-- LOGAR BUTTON -->
+                                                <asp:Button ID="btnLogar" CssClass="btn btn-primary btn-block" Text="Entar" runat="server" OnClick="btnLogar_Click" />
+
+
+                                                <!-- SOCIAL BUTTON -->
+                                                <div>
+                                                    <section id="socialLoginList">
+                                                        <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
+                                                    </section>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <br />
+                                            <asp:Label ID="lblErro" runat="server" Text="" Visible="false"></asp:Label>
+                                            <br />
+                                        </div>
+                                        <div class="bottom text-center">
+                                            Novo aqui? <a href="cadastroPage.aspx"><b>Cadastre-se já!</b></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- FIM DO MENU -->
+
+
+
+        <asp:ContentPlaceHolder ID="footer" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+        <!-- jQuery -->
+        <script src="Scripts/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="Scripts/bootstrap.js"></script>
+
+        <script type="text/javascript">
+            $(".debug").click(function () {
+                console.log('click');
+            });
+
+
+            //!!!!!!!!!!!!!!!!
+            $('.dropdown-menu').click(function (e) {
+                e.stopPropagation();
+            });
+
+            function openModal() {
+                $('#modalLogin').modal({ show: true });
+            }
+
+            $("#recoverSenha").click(function () {
+                $('#modalRecover').modal('show');
+            });
+
+        </script>
+        <!-- Plugin JavaScript -->
+        <script src="Scripts/jquery.easing.min.js"></script>
+        <script src="Scripts/jquery.fittext.js"></script>
+        <script src="Scripts/wow.min.js"></script>
+        <script src="Scripts/jquery.lightbox_me.js"></script>
+        <%-- <script src="Scripts/jquery.easypiechart.js"></script>--%>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="Scripts/creative.js"></script>
+    </form>
+</body>
+</html>
